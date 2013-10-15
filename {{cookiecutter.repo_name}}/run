@@ -2,4 +2,4 @@
 
 sbcl --load lisp/setup.lisp \
      --eval '(push (merge-pathnames "") asdf:*central-registry*)' \
-     --eval '(ql:quickload :package)'
+     --eval '(ql:quickload :{{cookiecutter.project_name}})'

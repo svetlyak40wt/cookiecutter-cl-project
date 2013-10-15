@@ -4,7 +4,7 @@ if [[ -e "lisp" ]]; then
     sbcl --non-interactive \
          --load lisp/setup.lisp \
          --eval '(push #P"./" asdf:*central-registry*)' \
-         --eval '(ql:quickload "package-dev")'
+         --eval '(ql:quickload "{{cookiecutter.project_name}}-dev")'
 else
     curl -O http://beta.quicklisp.org/quicklisp.lisp
     trap 'rm quicklisp.lisp' EXIT
@@ -13,5 +13,5 @@ else
          --load quicklisp.lisp \
          --eval '(quicklisp-quickstart:install :path #P"./lisp")' \
          --eval '(push #P"./" asdf:*central-registry*)' \
-         --eval '(ql:quickload "package-dev")'
+         --eval '(ql:quickload "{{cookiecutter.project_name}}-dev")'
 fi

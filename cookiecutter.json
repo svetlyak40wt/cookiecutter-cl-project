@@ -1,3 +1,8 @@
 {
-    "project": "cl-example",
+    "project_name": "cl-project",
+    "project_description": "A Common Lisp project",
+    "repo_name": "cl-project",
+    "full_name": "Alexander Artemenko",
+    "email": "svetlyak.40wt@gmail.com",
+    "dependencies": "#:cl-fad"
 }
