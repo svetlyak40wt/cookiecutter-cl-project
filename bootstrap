@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [[ -e "lisp" ]]; then
+    sbcl --non-interactive \
+         --load lisp/setup.lisp \
+         --eval '(push #P"./" asdf:*central-registry*)' \
+         --eval '(ql:quickload "package-dev")'
+else
+    curl -O http://beta.quicklisp.org/quicklisp.lisp
+    trap 'rm quicklisp.lisp' EXIT
+
+    sbcl --non-interactive \
+         --load quicklisp.lisp \
+         --eval '(quicklisp-quickstart:install :path #P"./lisp")' \
+         --eval '(push #P"./" asdf:*central-registry*)' \
+         --eval '(ql:quickload "package-dev")'
+fi
